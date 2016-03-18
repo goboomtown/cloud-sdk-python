@@ -5,8 +5,10 @@ This repository contains the open source PYTHON SDK that allows you to access th
 Authentication uses a pre-shared key and secret, which is generated in our Admin Portal.
 
 ## Getting Started
-- To get started, clone this repository
-- Run python setup.py install
+To get started, clone this repository
+```sh
+python setup.py install
+```
 
 ## API Key Generation
  - Log onto the Admin Portal (https://admin.goboomtown.com)
