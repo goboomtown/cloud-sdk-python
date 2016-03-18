@@ -1,28 +1,3 @@
-# Boomtown Cloud SDK for PYTHON (v1)
-
-## Overview
-This repository contains the open source PYTHON SDK that allows you to access the Cloud API from your PHP app.
-Authentication uses a pre-shared key and secret, which is generated in our Admin Portal.
-
-## Getting Started
-- To get started, clone this repository
-- Run python setup.py install
-
-## API Key Generation
- - Log onto the Admin Portal (https://admin.goboomtown.com)
- - Click Providers in the left menu
- - Find your provider in the list
- - Double click your provider
- - Click API Settings, near the button of the configuration panel
- - Select Sandbox or Live, depending on the state of development
- - Click Re-Generate
- - Copy the access token and private-key, as provided in the pop-up dialog
-
-## Usage
-
-#### Getting started, accessing basic data.
-
-```python
 import sys
 
 from BoomtownClient import ApiClient
@@ -35,9 +10,10 @@ from BoomtownClient.rest import ApiException
 apiClient = ApiClient()
 
 # Set your API credentials
-apiClient.set_api_token('YOUR_BOOMTOWN_TOKEN)
-apiClient.set_api_secret(YOUR_BOOMTOWN_SECRET)
+apiClient.set_api_token('YOUR_BOOMTOWN_TOKEN')
+apiClient.set_api_secret('YOUR_BOOMTOWN_SECRET')
 
+#### Getting started, accessing basic data.
 # Instantiate the ProvidersApi
 # **Note:** we need to provide the API ApiClient we configured above.
 providerApi = ProvidersApi(apiClient)
@@ -65,10 +41,8 @@ except ApiException as e:
 except:
     print "Unexpected error:", sys.exc_info()
     raise
-```
 
 #### Working with Merchant Issues
-```python
 # Instantiate the IssuesApi
 # **Note:** we can reuse the ApiClient object created previously/above.
 issuesApi = IssuesApi(apiClient)
@@ -107,16 +81,14 @@ except ApiException as e:
 except:
     print "Unexpected error:", sys.exc_info()
     raise
-```
 
-#### Creating a new Merchant and creating a new Issue for them
-```python
 from BoomtownClient.models import Issue
 from BoomtownClient.models import Member
 from BoomtownClient.models import MemberUser
 from BoomtownClient.models import MemberLocation
 from BoomtownClient.models import MemberCreateRequest
 
+#### Creating a new Merchant and creating a new Issue for them
 merchantApi = MerchantsApi(apiClient)
 issuesApi = IssuesApi(apiClient)
 try:
@@ -173,11 +145,3 @@ except ApiException as e:
 except:
     print "Unexpected error:", sys.exc_info()
     raise
-```
-
-Cloud API documentation available at: [http://developers.goboomtown.com/](http://developers.goboomtown.com/)
-
-
-## License
-
-Please see the [license file](https://github.com/goboomtown/cloud-sdk-php/blob/master/LICENSE) for more information.
